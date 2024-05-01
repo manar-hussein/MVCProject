@@ -1,0 +1,64 @@
+﻿@model Employee
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container py-5">
+    <h1 class="font-italic font-weight-bold">Employee : @Model.Id</h1>
+
+    <table class="table table-bordered table-striped ">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(E => E.Name)
+            </th>
+            <td>
+                @Model.Name
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(E => E.Email)
+            </th>
+            <td>
+                @Html.DisplayFor(M => Model.Email)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(E => E.Salary)
+            </th>
+            <td>
+                @Html.DisplayFor(M => Model.Salary)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(E => E.IsActive)
+            </th>
+            <td>
+                @Html.DisplayFor(M => Model.IsActive)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(E => E.Age)
+            </th>
+            <td>
+                @Model.Age
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(E => E.Gender)
+            </th>
+            <td>
+                @Model.Gender
+            </td>
+        </tr>
+    </table>
+
+    <a asp-action="Index" class="btn btn-primary my-3">Back To Employees</a>
+    <a asp-action="Update" asp-route-id="@Model.Id" class="btn btn-dark my-3">Update Employee</a>
+
+</div>
+

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Employee>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container py-5">
+    <h1 class="font-italic font-weight-bold">All Employees</h1>
+    <a asp-action="Add" class="btn btn-primary my-3">Create New Employee</a>
+
+
+@if(Model.Count() >0)
+    {
+        <table class="table table-striped table-hover table-bordered">
+            <thead>
+                <tr class=" font-weight-bold font-italic">
+                    <td>@Html.DisplayNameFor(M => M.Name)</td>
+                    <td>@Html.DisplayNameFor(M => M.Age)</td>
+                    <td>@Html.DisplayNameFor(M => M.Gender)</td>
+                    <td>@Html.DisplayNameFor(M => M.Email)</td>
+                    <td>@Html.DisplayNameFor(M => M.IsActive)</td>
+                    <td>@Html.DisplayNameFor(M => M.Salary)</td>
+                    <td>Details</td>
+                    <td>Update</td>
+                    <td>Delete</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Employee emp in Model)
+                {
+                    <tr>
+                        <td>@emp.Name</td>
+                        <td>@emp.Age</td>
+                        <td>@emp.Gender</td>
+                        <td>@Html.DisplayFor(E => emp.Email)</td>
+                        <td>@Html.DisplayFor(E => emp.IsActive)</td>
+                        <td>@Html.DisplayFor(E => emp.Salary)</td>
+                        <td>  <a asp-route-id="@emp.Id" asp-action="Details" class="btn btn-secondary"> <i class="fa-solid fa-eye"></i> Details</a> </td>
+                        <td>  <a asp-route-id="@emp.Id" asp-action="Update" class="btn btn-warning"> <i class="fa-solid fa-pen-to-square"></i> Update</a> </td>
+                        <td> <a asp-route-id="@emp.Id" asp-action="Delete" class="btn btn-danger"> <i class="fa-solid fa-trash"></i> Delete</a> </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }else
+    {
+        <div class="alert alert-primary font-weight-bold" role="alert">
+            There Are Not Employee Exsist :(
+        </div>
+    }
+
+   
+
+</div>
+
